@@ -1,7 +1,7 @@
 const db = require('../configs/pg')
 const itens = require('../routes/itens')
 
-const sql_delte = 
+const sql_delete = 
     `delete from itens where id = $1`
 const deleteItens = async(params) => {
     const { id } = params
@@ -11,8 +11,8 @@ const sql_insert =
     `insert into itens (codigo, tipo_item, descricao, medida, fornecedor, qtd, valor)
                     values ($1, $2, $3, $4, $5, $6, $7)`
 const postItens = async (params) => {
-    const { codigo, tipo_item, descricao, medida, fornecedor, qtd, valor } = params
-    await db.query(sql_insert, [codigo, tipo_item, descricao, medida, fornecedor, qtd, valor])
+    const { codigo, tipoItem, descricao, medida, fornecedor, qtd, valor } = params
+    await db.query(sql_insert, [codigo, tipoItem, descricao, medida, fornecedor, qtd, valor])
 }
 const sql_get = 
     `select id,
@@ -45,10 +45,10 @@ const patchItens = async(params) => {
         fields += ` codigo $${countParams}`
         binds.push(params.codigo)
     }
-    if(params.tipo_item){
+    if(params.tipoItem){
         countParams ++
         fields += (fields? ',':'') + ` tipo_item = $${countParams}`
-        binds.push(params.tipo_item)
+        binds.push(params.tipoItem)
     }
     if(params.descricao){
         countParams ++

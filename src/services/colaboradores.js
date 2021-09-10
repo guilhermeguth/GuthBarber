@@ -1,6 +1,6 @@
 const db = require('../configs/pg')
 
-const sql_delte = 
+const sql_delete = 
     `delete from colaboradores where id = $1`
 const deleteColaboradores = async(params) => {
     const { id } = params
