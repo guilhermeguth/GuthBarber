@@ -21,7 +21,7 @@ const postClientes = async (req, res, next) => {
 }
 const deleteClientes = async(req, res, next) => {
     try {
-        await clienteService.deleteClientes(req.params)
+        await clientesService.deleteClientes(req.params)
             .then(ret => res.status(204).send(ret))
             .catch(err => res.status(500).send(err))
     } catch(err) {

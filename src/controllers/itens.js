@@ -41,6 +41,6 @@ const patchItens = async (req, res, next) => {
 }
 
 module.exports.patchItens = patchItens
-module.exports.deleteClientes = deleteItens
-module.exports.getItenss = getItens
+module.exports.deleteItens = deleteItens
+module.exports.getItens = getItens
 module.exports.postItens = postItens

@@ -1,8 +1,8 @@
-let colaboradoresService = require('../services/clientes')
+let colaboradoresService = require('../services/colaboradores')
 
 const getColaboradores = async (req, res, next) =>{
     try {
-        await colaboradoresService.getClientes()
+        await colaboradoresService.getColaboradores()
             .then(ret => res.status(201).send(ret))
             .catch(err => res.status(500).send(err))
     } catch (err) {
@@ -32,7 +32,7 @@ const patchColaboradores = async (req, res, next) => {
     try {
         let params = req.body
         params.id = req.params.id
-        await colaboradoresService.patchClientes(params)
+        await colaboradoresService.patchColaboradores(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err))
     } catch(err) {

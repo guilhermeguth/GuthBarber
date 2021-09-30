@@ -20,9 +20,76 @@
   "paths": {
     "/clientes": {
       "post": {
-        "tags": [],
+        "tags": [
+          "Clientes"
+        ],
+        "summary": "Insere um cliente.",
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para inserir um aluno",
+            "type": "json",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Guilherme Guth Zahn"
+                },
+                "cpfcnpj": {
+                  "type": "string",
+                  "example": "073.926.459-19"
+                },
+                "rginsc": {
+                  "type": "string",
+                  "example": "152.650.152"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "(49)988740497"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "guilhermeguthzgmail.com"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Av. Sao Paulo"
+                },
+                "numero": {
+                  "type": "number",
+                  "example": 2999
+                },
+                "bairro": {
+                  "type": "string",
+                  "example": "Pioneiro"
+                },
+                "complemento": {
+                  "type": "string",
+                  "example": "Residencial Mantelli Apt 402-B"
+                },
+                "municipio": {
+                  "type": "string",
+                  "example": "Pinhalzinho"
+                },
+                "cep": {
+                  "type": "string",
+                  "example": "89870-000"
+                },
+                "uf": {
+                  "type": "string",
+                  "example": "SC"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Criado"
@@ -33,7 +100,10 @@
         }
       },
       "get": {
-        "tags": [],
+        "tags": [
+          "Clientes"
+        ],
+        "summary": "Busca lista de Clientes.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -48,14 +118,19 @@
     },
     "/clientes/{id}": {
       "delete": {
-        "tags": [],
+        "tags": [
+          "Clientes"
+        ],
+        "summary": "Deleta um cliente selecionado.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "id do Cliente",
+            "value": "1"
           }
         ],
         "responses": {
@@ -103,7 +178,10 @@
         }
       },
       "get": {
-        "tags": [],
+        "tags": [
+          "Colaboradores"
+        ],
+        "summary": "Busca lista de Colaboradores.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -118,14 +196,19 @@
     },
     "/colaboradores/{id}": {
       "delete": {
-        "tags": [],
+        "tags": [
+          "Colaboradores"
+        ],
+        "summary": "Deleta um colaborador selecionado.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "id do Colaborador",
+            "value": "1"
           }
         ],
         "responses": {
@@ -173,7 +256,10 @@
         }
       },
       "get": {
-        "tags": [],
+        "tags": [
+          "Fornecedores"
+        ],
+        "summary": "Busca lista de Fornecedores.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -188,14 +274,19 @@
     },
     "/fornecedores/{id}": {
       "delete": {
-        "tags": [],
+        "tags": [
+          "Fornecedores"
+        ],
+        "summary": "Deleta um Fornecedor selecionado.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "id do Fornecedore",
+            "value": "1"
           }
         ],
         "responses": {
@@ -243,7 +334,10 @@
         }
       },
       "get": {
-        "tags": [],
+        "tags": [
+          "Itens"
+        ],
+        "summary": "Busca lista de Itens.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -258,14 +352,19 @@
     },
     "/itens/{id}": {
       "delete": {
-        "tags": [],
+        "tags": [
+          "Itens"
+        ],
+        "summary": "Deleta um item selecionado.",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "id do item",
+            "value": "1"
           }
         ],
         "responses": {
@@ -303,27 +402,77 @@
         "tags": [],
         "description": "",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
       },
       "get": {
-        "tags": [],
+        "tags": [
+          "Tipo Item"
+        ],
+        "summary": "Busca lista de Tipo de Item.",
         "description": "",
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
       }
     },
     "/tipoItem/{id}": {
       "delete": {
-        "tags": [],
+        "tags": [
+          "Tipo Item"
+        ],
+        "summary": "Deleta um tipo item selecionado.",
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "id do tipo item",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Nenhum Conteúdo"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
       },
       "patch": {
         "tags": [],
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
       }
     }
   },

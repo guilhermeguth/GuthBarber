@@ -2,7 +2,7 @@ let fornecedoresService = require('../services/fornecedores')
 
 const getFornecedores = async (req, res, next) =>{
     try {
-        await clientesService.getFornecedores()
+        await fornecedoresService.getFornecedores()
             .then(ret => res.status(201).send(ret))
             .catch(err => res.status(500).send(err))
     } catch (err) {
@@ -12,7 +12,7 @@ const getFornecedores = async (req, res, next) =>{
 
 const postFornecedores = async (req, res, next) => {
     try {
-        await clientesService.postFornecedores(req.body)
+        await fornecedoresService.postFornecedores(req.body)
             .then(ret => res.status(201).send(ret))
             .catch(err => res.status(500).send(err))
     } catch (err) {
@@ -21,7 +21,7 @@ const postFornecedores = async (req, res, next) => {
 }
 const deleteFornecedores = async(req, res, next) => {
     try {
-        await clienteService.deleteFornecedores(req.params)
+        await fornecedoresService.deleteFornecedores(req.params)
             .then(ret => res.status(204).send(ret))
             .catch(err => res.status(500).send(err))
     } catch(err) {
@@ -32,7 +32,7 @@ const patchFornecedores = async (req, res, next) => {
     try {
         let params = req.body
         params.id = req.params.id
-        await clienteService.patchFornecedores(params)
+        await fornecedoresService.patchFornecedores(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err))
     } catch(err) {
